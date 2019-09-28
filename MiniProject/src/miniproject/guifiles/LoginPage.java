@@ -12,6 +12,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
+import java.sql.SQLException;
+
 
 public class LoginPage extends Application {
     JavaMain j;
@@ -52,7 +54,13 @@ public class LoginPage extends Application {
 
         buttonLogin.setOnAction(e -> {
             primaryStage.close();
-            j=new JavaMain(textUsername.getText().toString(),cb.getValue().toString());
+            try {
+                j=new JavaMain(textUsername.getText().toString(),cb.getValue().toString());
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
             new AfterLogin(j);
 
         });
