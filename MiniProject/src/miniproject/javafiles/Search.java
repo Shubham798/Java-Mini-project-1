@@ -1,7 +1,9 @@
 package miniproject.javafiles;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Search {
+    DecimalFormat df= new DecimalFormat("0.0");
     String [][]restData=new String[RestMap.restNo][2];
     float [][]deliveryData=new float[RestMap.restNo][2];
     void search(RestMap []rs,BlockMap bm,User u){
@@ -33,8 +35,8 @@ public class Search {
         }
         Random random=new Random();
         for (int i=0;i<RestMap.restNo;i++){
-            deliveryData[i][0]=(float)distance[i];
-            deliveryData[i][1]=(float) Math.floor(distance[i]*13)+11+random.nextInt(((5-1)+1)+1);
+            deliveryData[i][0]=Float.valueOf(df.format((float)distance[i]+random.nextFloat()));
+            deliveryData[i][1]=(float) (Math.floor(distance[i]*13)+11+random.nextInt(((5-1)+1)+1));
         }
 
     }
