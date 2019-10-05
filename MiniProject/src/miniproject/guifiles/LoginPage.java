@@ -3,21 +3,27 @@ package miniproject.guifiles;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.ImageCursor;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import miniproject.javafiles.JavaMain;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
+import java.util.Collections;
 
 
 public class LoginPage extends Application {
     JavaMain j;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws FileNotFoundException {
         primaryStage.setX(100);
         primaryStage.setY(100);
 
@@ -55,17 +61,29 @@ public class LoginPage extends Application {
 
         buttonLogin.setOnAction(e -> {
             primaryStage.close();
-            j=new JavaMain(textUsername.getText().toString(),cb.getValue().toString());
-            new AfterLogin(j,textUsername.getText());
+            try {
+                j=new JavaMain(textUsername.getText().toString(),cb.getValue().toString());
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+            try {
+                new AfterLogin(j,textUsername.getText());
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
 
         });
 
         borderPane.setTop(hBox);
         borderPane.setCenter(gridPane);
+        FileInputStream fs = new FileInputStream("C:\\Users\\Darshan\\Desktop\\MINIMINI-master\\MiniProject\\src\\miniproject\\guifiles\\1.jpg");
+        Image i= new Image(fs);
+        borderPane.setBackground(new Background(new BackgroundImage(i,BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
         Scene scene = new Scene(borderPane);
         primaryStage.setTitle("LoginWindow");
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
         primaryStage.setResizable(false);
         primaryStage.show();
     }

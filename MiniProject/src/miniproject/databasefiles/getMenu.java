@@ -35,11 +35,11 @@ public class getMenu {
         }
     }
 
-    int[] DishPrices()
+    public int[] getDishPrices()
     {
         return dishPrices;
     }
-    String [] DishNames()
+    public String [] getDishNames()
     {
         return dishNames;
     }

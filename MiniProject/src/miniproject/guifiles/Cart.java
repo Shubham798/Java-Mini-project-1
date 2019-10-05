@@ -42,12 +42,13 @@ public class Cart extends Application {
         }
         Label cartTitle= new Label("CART");
         Label total= new Label("Order total: "+orderTotal);
-        Button closeButton= new Button("Close");
+        Button closeButton= new Button("Place Order");
         vBox.getChildren().addAll(cartTitle,gridPane,total,closeButton);
 
         closeButton.setOnMouseClicked(event -> {
             Label temp= new Label("Order placed!");
             vBox.getChildren().add(temp);
+            closeButton.setVisible(false);
         });
 
         Scene scene= new Scene(vBox,300,300);
