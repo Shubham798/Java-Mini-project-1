@@ -12,14 +12,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-import java.sql.SQLException;
-
 
 public class LoginPage extends Application {
     JavaMain j;
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.setX(100);
+        primaryStage.setY(100);
+
         BorderPane borderPane = new BorderPane();
         borderPane.setPadding(new Insets(10, 50, 50, 50));
 
@@ -54,14 +55,8 @@ public class LoginPage extends Application {
 
         buttonLogin.setOnAction(e -> {
             primaryStage.close();
-            try {
-                j=new JavaMain(textUsername.getText().toString(),cb.getValue().toString());
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            } catch (ClassNotFoundException ex) {
-                ex.printStackTrace();
-            }
-            new AfterLogin(j);
+            j=new JavaMain(textUsername.getText().toString(),cb.getValue().toString());
+            new AfterLogin(j,textUsername.getText());
 
         });
 
@@ -70,6 +65,7 @@ public class LoginPage extends Application {
         Scene scene = new Scene(borderPane);
         primaryStage.setTitle("LoginWindow");
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
