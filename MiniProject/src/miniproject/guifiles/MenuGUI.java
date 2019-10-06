@@ -90,6 +90,7 @@ public class MenuGUI extends Application {
         sc.setContent(ultimateBox);
 
         Scene scene= new Scene(sc,500,300);
+        scene.getStylesheets().add("Viper.css");
         primaryStage.setTitle(selectedRestName);
         primaryStage.setScene(scene);
         primaryStage.show();
