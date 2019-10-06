@@ -116,6 +116,7 @@ public class AfterLogin extends Application {
         //scrollPane.setBackground(new Background(new BackgroundImage(i, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         Scene scene=new Scene(scrollPane,250,500);
+        scene.getStylesheets().add("Viper.css");
         primaryStage.setTitle("Suggestions");
         primaryStage.setScene(scene);
         //primaryStage.setFullScreen(true);
