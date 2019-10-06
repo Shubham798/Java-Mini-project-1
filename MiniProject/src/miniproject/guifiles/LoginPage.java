@@ -78,9 +78,7 @@ public class LoginPage extends Application {
 
         borderPane.setTop(hBox);
         borderPane.setCenter(gridPane);
-        FileInputStream fs = new FileInputStream("C:\\Users\\Darshan\\Desktop\\MINIMINI-master\\MiniProject\\src\\miniproject\\guifiles\\1.jpg");
-        Image i= new Image(fs);
-        borderPane.setBackground(new Background(new BackgroundImage(i,BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
+        scene.getStylesheets().add("Viper.css");
         Scene scene = new Scene(borderPane);
         primaryStage.setTitle("LoginWindow");
         primaryStage.setScene(scene);
