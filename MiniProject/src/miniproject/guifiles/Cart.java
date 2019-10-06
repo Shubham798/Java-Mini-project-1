@@ -52,6 +52,7 @@ public class Cart extends Application {
         });
 
         Scene scene= new Scene(vBox,300,300);
+        scene.getStylesheets().add("Viper.css");
         primaryStage.setTitle("Cart");
         primaryStage.setScene(scene);
         primaryStage.show();
