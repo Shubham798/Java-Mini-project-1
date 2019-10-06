@@ -8,7 +8,6 @@
     -fx-control-inner-background: rgb(20, 20, 20);
     -fx-control-inner-background-alt: derive(-fx-control-inner-background, 2.5%);
 
-    -fx-light-text-color: rgb(255, 0, 0);
     -fx-mid-text-color: rgb(100, 100, 100);
     -fx-dark-text-color: rgb(20, 20, 20);
 
