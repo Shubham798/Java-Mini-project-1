@@ -79,6 +79,7 @@ public class AfterLogin extends Application {
         for (int i=0;i<RestMap.restNo;i++){
             restNames[i]=new Label(j.restData[i][0]);
             restNames[i].setFont(new Font("Arial",20));
+            restNames[i].setStyle("-fx-light-text-color: #AB4642;");
             restStreets[i]=new Label( j.restData[i][1]);
             restDistance[i]=new Label(Float.toString(j.deliveryData[i][0]));
             restDeliveryTime[i]=new Label(Float.toString(j.deliveryData[i][1]));
@@ -116,7 +117,7 @@ public class AfterLogin extends Application {
         //scrollPane.setBackground(new Background(new BackgroundImage(i, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
 
         Scene scene=new Scene(scrollPane,250,500);
-        scene.getStylesheets().add("Viper.css");
+        scene.getStylesheets().add("AfterLogin.css");
         primaryStage.setTitle("Suggestions");
         primaryStage.setScene(scene);
         //primaryStage.setFullScreen(true);
